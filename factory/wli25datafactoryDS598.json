@@ -1,0 +1,9 @@
+{
+	"name": "wli25datafactoryDS598",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "395a9afa-215f-4249-bed9-1c7a6766addd",
+		"tenantId": "d57d32cc-c121-488f-b07b-dfe705680c71"
+	}
+}
