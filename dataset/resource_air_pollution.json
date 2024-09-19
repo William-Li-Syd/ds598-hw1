@@ -1,0 +1,12 @@
+{
+	"name": "resource_air_pollution",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "open_weather_air_pollution",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	}
+}
