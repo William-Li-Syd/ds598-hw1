@@ -34,7 +34,20 @@
 						]
 					}
 				],
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "start"
+					},
+					{
+						"name": "end"
+					},
+					{
+						"name": "long"
+					},
+					{
+						"name": "lat"
+					}
+				],
 				"typeProperties": {
 					"items": {
 						"value": "@range(0,52)",

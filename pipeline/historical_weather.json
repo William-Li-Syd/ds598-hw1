@@ -52,6 +52,20 @@
 								"secureOutput": false,
 								"secureInput": false
 							},
+							"userProperties": [
+								{
+									"name": "start"
+								},
+								{
+									"name": "end"
+								},
+								{
+									"name": "long"
+								},
+								{
+									"name": "lat"
+								}
+							],
 							"typeProperties": {
 								"source": {
 									"type": "RestSource",
