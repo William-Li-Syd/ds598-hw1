@@ -36,6 +36,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@range(0,52)",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "Copy data1",
@@ -48,7 +52,6 @@
 								"secureOutput": false,
 								"secureInput": false
 							},
-							"userProperties": [],
 							"typeProperties": {
 								"source": {
 									"type": "RestSource",
@@ -59,9 +62,23 @@
 										"supportRFC5988": "true"
 									}
 								},
+								"sink": {
+									"type": "RestSink",
+									"httpRequestTimeout": "00:05:00",
+									"requestInterval": 10,
+									"requestMethod": "PUT",
+									"writeBatchSize": 10000,
+									"httpCompressionType": "none"
+								},
 								"enableStaging": false
 							},
 							"inputs": [
+								{
+									"referenceName": "resource_air_pollution",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
 								{
 									"referenceName": "resource_air_pollution",
 									"type": "DatasetReference"
