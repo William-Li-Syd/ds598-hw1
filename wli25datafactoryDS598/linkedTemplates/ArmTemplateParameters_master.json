@@ -8,12 +8,6 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
-		"open_weather_air_pollution_password": {
-			"value": ""
-		},
-		"open_weather_rest_api_password": {
-			"value": ""
-		},
 		"wli25github_credential": {
 			"value": ""
 		},
