@@ -216,7 +216,7 @@
 						"typeProperties": {
 							"method": "GET",
 							"headers": {},
-							"url": "https://wli25-key-vault.vault.azure.net/secrets/wli25-hw2-openweathermap-ds598?api-version=7.0",
+							"url": "https://wli25-key-vault/secrets/93fb8f47efd4c32630aebf9b1d8ea618?api-version=7.0",
 							"authentication": {
 								"type": "MSI",
 								"resource": "https://vault.azure.net"
@@ -308,7 +308,7 @@
 									],
 									"outputs": [
 										{
-											"referenceName": "historical_weather_bronze",
+											"referenceName": "air_pollution_bronze",
 											"type": "DatasetReference",
 											"parameters": {}
 										}
@@ -339,7 +339,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/resource_historical_weather')]",
-				"[concat(variables('factoryId'), '/datasets/historical_weather_bronze')]"
+				"[concat(variables('factoryId'), '/datasets/air_pollution_bronze')]"
 			]
 		},
 		{
