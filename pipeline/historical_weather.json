@@ -76,7 +76,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "resource_air_pollution",
+									"referenceName": "resource_historical_weather",
 									"type": "DatasetReference",
 									"parameters": {
 										"lat": {
