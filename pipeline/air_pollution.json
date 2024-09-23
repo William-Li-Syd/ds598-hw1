@@ -37,12 +37,12 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@range(0,52)",
+						"value": "@range(-51,52)",
 						"type": "Expression"
 					},
 					"activities": [
 						{
-							"name": "Copy data1",
+							"name": "Copy data1_air_pollution",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {

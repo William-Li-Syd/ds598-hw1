@@ -37,12 +37,12 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@range(0,52)",
+						"value": "@range(-51,52)",
 						"type": "Expression"
 					},
 					"activities": [
 						{
-							"name": "Copy data1",
+							"name": "Copy data1_historical_weather",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
@@ -76,13 +76,39 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "resource_historical_weather",
-									"type": "DatasetReference"
+									"referenceName": "resource_air_pollution",
+									"type": "DatasetReference",
+									"parameters": {
+										"lat": {
+											"value": "@variables('lat')",
+											"type": "Expression"
+										},
+										"lon": {
+											"value": "@variables('lon')",
+											"type": "Expression"
+										},
+										"dataType": {
+											"value": "@variables('dataType')",
+											"type": "Expression"
+										},
+										"cur_time": {
+											"value": "@utcNow()",
+											"type": "Expression"
+										},
+										"appid": {
+											"value": "@activity('Web1').output.value",
+											"type": "Expression"
+										},
+										"item": {
+											"value": "@item()",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
 								{
-									"referenceName": "historical_weather_bronze",
+									"referenceName": "air_pollution_bronze",
 									"type": "DatasetReference"
 								}
 							]
@@ -91,6 +117,20 @@
 				}
 			}
 		],
+		"variables": {
+			"lat": {
+				"type": "String",
+				"defaultValue": "42.3554334"
+			},
+			"lon": {
+				"type": "String",
+				"defaultValue": "-71.060511"
+			},
+			"dataType": {
+				"type": "String",
+				"defaultValue": "hour"
+			}
+		},
 		"annotations": []
 	}
 }
