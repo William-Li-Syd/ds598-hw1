@@ -108,7 +108,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "air_pollution_bronze",
+									"referenceName": "historical_weather_bronze",
 									"type": "DatasetReference"
 								}
 							]
