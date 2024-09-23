@@ -52,20 +52,7 @@
 								"secureOutput": false,
 								"secureInput": false
 							},
-							"userProperties": [
-								{
-									"name": "start"
-								},
-								{
-									"name": "end"
-								},
-								{
-									"name": "long"
-								},
-								{
-									"name": "lat"
-								}
-							],
+							"userProperties": [],
 							"typeProperties": {
 								"source": {
 									"type": "RestSource",
@@ -77,12 +64,13 @@
 									}
 								},
 								"sink": {
-									"type": "RestSink",
-									"httpRequestTimeout": "00:05:00",
-									"requestInterval": 10,
-									"requestMethod": "PUT",
-									"writeBatchSize": 10000,
-									"httpCompressionType": "none"
+									"type": "JsonSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "JsonWriteSettings"
+									}
 								},
 								"enableStaging": false
 							},
@@ -94,7 +82,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "resource_historical_weather",
+									"referenceName": "historical_weather_bronze",
 									"type": "DatasetReference"
 								}
 							]

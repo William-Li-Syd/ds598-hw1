@@ -26,21 +26,15 @@
 			{
 				"name": "ForEach1",
 				"type": "ForEach",
-				"dependsOn": [],
-				"userProperties": [
+				"dependsOn": [
 					{
-						"name": "start"
-					},
-					{
-						"name": "end"
-					},
-					{
-						"name": "long"
-					},
-					{
-						"name": "lat"
+						"activity": "Web1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
 					}
 				],
+				"userProperties": [],
 				"typeProperties": {
 					"items": {
 						"value": "@range(0,52)",
@@ -70,42 +64,73 @@
 									}
 								},
 								"sink": {
-									"type": "RestSink",
-									"httpRequestTimeout": "00:05:00",
-									"requestInterval": 10,
-									"requestMethod": "PUT",
-									"writeBatchSize": 10000,
-									"httpCompressionType": "none"
+									"type": "JsonSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "JsonWriteSettings"
+									}
 								},
 								"enableStaging": false
 							},
 							"inputs": [
 								{
 									"referenceName": "resource_air_pollution",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"lat": {
+											"value": "@variables('lat')",
+											"type": "Expression"
+										},
+										"lon": {
+											"value": "@variables('lon')",
+											"type": "Expression"
+										},
+										"dataType": {
+											"value": "@variables('dataType')",
+											"type": "Expression"
+										},
+										"cur_time": {
+											"value": "@utcNow()",
+											"type": "Expression"
+										},
+										"appid": {
+											"value": "@activity('Web1').output.value",
+											"type": "Expression"
+										},
+										"item": {
+											"value": "@item()",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
 								{
-									"referenceName": "resource_air_pollution",
+									"referenceName": "air_pollution_bronze",
 									"type": "DatasetReference"
 								}
 							]
 						}
 					]
 				}
-			},
-			{
-				"name": "Set variable1",
-				"type": "SetVariable",
-				"dependsOn": [],
-				"policy": {
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": []
 			}
 		],
+		"variables": {
+			"lat": {
+				"type": "String",
+				"defaultValue": "42.3554334"
+			},
+			"lon": {
+				"type": "String",
+				"defaultValue": "-71.060511"
+			},
+			"dataType": {
+				"type": "String",
+				"defaultValue": "hour"
+			}
+		},
 		"annotations": []
 	}
 }
