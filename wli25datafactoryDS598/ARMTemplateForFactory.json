@@ -308,7 +308,7 @@
 									],
 									"outputs": [
 										{
-											"referenceName": "air_pollution_bronze",
+											"referenceName": "historical_weather_bronze",
 											"type": "DatasetReference",
 											"parameters": {}
 										}
@@ -339,7 +339,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/resource_historical_weather')]",
-				"[concat(variables('factoryId'), '/datasets/air_pollution_bronze')]"
+				"[concat(variables('factoryId'), '/datasets/historical_weather_bronze')]"
 			]
 		},
 		{
