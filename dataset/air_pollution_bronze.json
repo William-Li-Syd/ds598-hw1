@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "pollution_air.json",
 				"folderPath": "Bronze",
 				"fileSystem": "wli25blob"
 			}
