@@ -27,6 +27,9 @@
 		},
 		"annotations": [],
 		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "data/2.5/history/city?lat=@{dataset().lat}&lon=@{dataset().lon}&type=@{dataset().dataType}&start=@{div(sub(ticks(formatDateTime(addDays(dataset().cur_time, sub(mul(dataset().item, 7), 7)))), ticks(formatDateTime('1970-01-01T00:00:00Z'))), 10000000)}&end=@{div(sub(ticks(formatDateTime(addDays(dataset().cur_time, mul(dataset().item, 7)))), ticks(formatDateTime('1970-01-01T00:00:00Z'))), 10000000)}&appid=@{dataset().appid}"
+		},
 		"schema": []
 	}
 }
