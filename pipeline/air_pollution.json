@@ -98,10 +98,6 @@
 										"appid": {
 											"value": "@activity('Web1').output.value",
 											"type": "Expression"
-										},
-										"item": {
-											"value": "@item()",
-											"type": "Expression"
 										}
 									}
 								}
