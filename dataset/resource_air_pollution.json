@@ -5,6 +5,26 @@
 			"referenceName": "open_weather_air_pollution",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"lat": {
+				"type": "string"
+			},
+			"lon": {
+				"type": "string"
+			},
+			"dataType": {
+				"type": "string"
+			},
+			"cur_time": {
+				"type": "string"
+			},
+			"appid": {
+				"type": "int"
+			},
+			"item": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "RestResource",
 		"schema": []

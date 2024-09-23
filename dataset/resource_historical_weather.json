@@ -5,6 +5,26 @@
 			"referenceName": "open_weather_rest_api",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"lat": {
+				"type": "string"
+			},
+			"long": {
+				"type": "string"
+			},
+			"dataType": {
+				"type": "string"
+			},
+			"cur_time": {
+				"type": "string"
+			},
+			"appid": {
+				"type": "string"
+			},
+			"item": {
+				"type": "int"
+			}
+		},
 		"annotations": [],
 		"type": "RestResource",
 		"schema": []
