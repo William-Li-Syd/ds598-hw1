@@ -77,8 +77,8 @@
 						}
 					},
 					{
-						"name": "ForEach1",
-						"type": "ForEach",
+						"name": "Copy data1_air_pollution",
+						"type": "Copy",
 						"dependsOn": [
 							{
 								"activity": "Web1",
@@ -87,88 +87,70 @@
 								]
 							}
 						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
 						"userProperties": [],
 						"typeProperties": {
-							"items": {
-								"value": "@range(-51,52)",
-								"type": "Expression"
-							},
-							"activities": [
-								{
-									"name": "Copy data1_air_pollution",
-									"type": "Copy",
-									"dependsOn": [],
-									"policy": {
-										"timeout": "0.12:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"source": {
-											"type": "RestSource",
-											"httpRequestTimeout": "00:01:40",
-											"requestInterval": "00.00:00:00.010",
-											"requestMethod": "GET",
-											"paginationRules": {
-												"supportRFC5988": "true"
-											}
-										},
-										"sink": {
-											"type": "JsonSink",
-											"storeSettings": {
-												"type": "AzureBlobFSWriteSettings"
-											},
-											"formatSettings": {
-												"type": "JsonWriteSettings"
-											}
-										},
-										"enableStaging": false
-									},
-									"inputs": [
-										{
-											"referenceName": "resource_air_pollution",
-											"type": "DatasetReference",
-											"parameters": {
-												"lat": {
-													"value": "@variables('lat')",
-													"type": "Expression"
-												},
-												"lon": {
-													"value": "@variables('lon')",
-													"type": "Expression"
-												},
-												"dataType": {
-													"value": "@variables('dataType')",
-													"type": "Expression"
-												},
-												"cur_time": {
-													"value": "@utcNow()",
-													"type": "Expression"
-												},
-												"appid": {
-													"value": "@activity('Web1').output.value",
-													"type": "Expression"
-												},
-												"item": {
-													"value": "@item()",
-													"type": "Expression"
-												}
-											}
-										}
-									],
-									"outputs": [
-										{
-											"referenceName": "air_pollution_bronze",
-											"type": "DatasetReference",
-											"parameters": {}
-										}
-									]
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET",
+								"paginationRules": {
+									"supportRFC5988": "true"
 								}
-							]
-						}
+							},
+							"sink": {
+								"type": "JsonSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "JsonWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "resource_air_pollution",
+								"type": "DatasetReference",
+								"parameters": {
+									"lat": {
+										"value": "@variables('lat')",
+										"type": "Expression"
+									},
+									"lon": {
+										"value": "@variables('lon')",
+										"type": "Expression"
+									},
+									"dataType": {
+										"value": "@variables('dataType')",
+										"type": "Expression"
+									},
+									"cur_time": {
+										"value": "@utcNow()",
+										"type": "Expression"
+									},
+									"appid": {
+										"value": "@activity('Web1').output.value",
+										"type": "Expression"
+									}
+								}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "air_pollution_bronze",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
 					}
 				],
 				"policy": {
@@ -380,7 +362,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "Bronze",
+						"folderPath": "Bronze/weather_his_pull",
 						"fileSystem": "wli25blob"
 					}
 				},
@@ -414,16 +396,13 @@
 					},
 					"appid": {
 						"type": "string"
-					},
-					"item": {
-						"type": "int"
 					}
 				},
 				"annotations": [],
 				"type": "RestResource",
 				"typeProperties": {
 					"relativeUrl": {
-						"value": "data/2.5/air_pollution/history?lat=@{dataset().lat}&lon=@{dataset().lon}&type=@{dataset().dataType}&start=@{div(sub(ticks(formatDateTime(addDays(dataset().cur_time, sub(mul(dataset().item, 7), 7)))), ticks(formatDateTime('1970-01-01T00:00:00Z'))), 10000000)}&end=@{div(sub(ticks(formatDateTime(addDays(dataset().cur_time, mul(dataset().item, 7)))), ticks(formatDateTime('1970-01-01T00:00:00Z'))), 10000000)}&appid=@{dataset().appid}",
+						"value": "data/2.5/air_pollution/history?lat=@{dataset().lat}&lon=@{dataset().lon}&type=@{dataset().dataType}&start=@{div(sub(ticks(formatDateTime(addDays(dataset().cur_time, mul(-52, 7)))), ticks(formatDateTime('1970-01-01T00:00:00Z'))), 10000000)}&end=@{div(sub(ticks(formatDateTime(dataset().cur_time)), ticks(formatDateTime('1970-01-01T00:00:00Z'))), 10000000)}&appid=@{dataset().appid}",
 						"type": "Expression"
 					}
 				},
