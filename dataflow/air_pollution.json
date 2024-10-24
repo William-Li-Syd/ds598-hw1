@@ -1,0 +1,25 @@
+{
+	"name": "air_pollution",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "air_pollution_bronze",
+						"type": "DatasetReference"
+					},
+					"name": "silverairpollution"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> silverairpollution"
+			]
+		}
+	}
+}
