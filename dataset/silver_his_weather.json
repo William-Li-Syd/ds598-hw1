@@ -1,0 +1,20 @@
+{
+	"name": "silver_his_weather",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Silver",
+				"fileSystem": "wli25blob"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
