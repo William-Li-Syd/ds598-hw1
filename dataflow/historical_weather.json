@@ -36,6 +36,9 @@
 				},
 				{
 					"name": "DropCol"
+				},
+				{
+					"name": "flatten1"
 				}
 			],
 			"scriptLines": [
@@ -52,7 +55,7 @@
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine',",
 				"     wildcardPaths:['Bronze/weather_his_pull/*']) ~> silverhistorical",
-				"silverhistorical foldDown(unroll(),",
+				"flatten1 foldDown(unroll(),",
 				"     mapColumn(",
 				"          calctime,",
 				"          message,",
@@ -131,6 +134,18 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> DropCol",
+				"silverhistorical foldDown(unroll(list),",
+				"     mapColumn(",
+				"          clouds = list.clouds,",
+				"          dt = list.dt,",
+				"          main = list.main,",
+				"          rain = list.rain,",
+				"          snow = list.snow,",
+				"          weather = list.weather,",
+				"          wind = list.wind",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten1",
 				"DropCol sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'parquet',",
