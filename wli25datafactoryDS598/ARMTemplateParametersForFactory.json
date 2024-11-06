@@ -8,6 +8,9 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
+		"serpapi_finance_connectionString": {
+			"value": ""
+		},
 		"wli25github_credential": {
 			"value": ""
 		},
@@ -28,6 +31,9 @@
 		},
 		"open_weather_rest_api_properties_typeProperties_userName": {
 			"value": "liw25"
+		},
+		"serpapi_google_finance_properties_typeProperties_url": {
+			"value": "https://serpapi.com/search?engine=google_finance"
 		},
 		"wli25github_properties_typeProperties_username": {
 			"value": "William-Li-Syd"
