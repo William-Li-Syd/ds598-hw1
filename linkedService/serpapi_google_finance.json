@@ -1,0 +1,12 @@
+{
+	"name": "serpapi_google_finance",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://serpapi.com/search?engine=google_finance",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
