@@ -565,7 +565,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"items": {
-								"value": "[\n  {\"q\": \"AAPL\"},\n  {\"q\": \"GOOGL\"},\n  {\"q\": \"MSFT\"}\n]\n ",
+								"value": "@json('[{\"q\": \"AAPL\"}, {\"q\": \"GOOGL\"}, {\"q\": \"MSFT\"}]')\n",
 								"type": "Expression"
 							},
 							"activities": [
@@ -606,7 +606,9 @@
 										{
 											"referenceName": "RestResource1",
 											"type": "DatasetReference",
-											"parameters": {}
+											"parameters": {
+												"q": "AAPL"
+											}
 										}
 									],
 									"outputs": [
