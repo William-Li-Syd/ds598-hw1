@@ -1059,7 +1059,13 @@
 				"typeProperties": {
 					"url": "[parameters('serpapi_google_finance_properties_typeProperties_url')]",
 					"enableServerCertificateValidation": true,
-					"authenticationType": "Anonymous"
+					"authenticationType": "Anonymous",
+					"authHeaders": {
+						"api_key": {
+							"type": "SecureString",
+							"value": "496d24eea2beb174623bf1a185645bac5d8eabc47715d83f890b9fc5696db4cc"
+						}
+					}
 				}
 			},
 			"dependsOn": []
