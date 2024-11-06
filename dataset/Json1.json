@@ -1,0 +1,81 @@
+{
+	"name": "Json1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "serpapi_finance",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "wli25blob"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"coord": {
+					"type": "object",
+					"properties": {
+						"lon": {
+							"type": "number"
+						},
+						"lat": {
+							"type": "number"
+						}
+					}
+				},
+				"list": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"main": {
+								"type": "object",
+								"properties": {
+									"aqi": {
+										"type": "integer"
+									}
+								}
+							},
+							"components": {
+								"type": "object",
+								"properties": {
+									"co": {
+										"type": "number"
+									},
+									"no": {
+										"type": "number"
+									},
+									"no2": {
+										"type": "number"
+									},
+									"o3": {
+										"type": "number"
+									},
+									"so2": {
+										"type": "integer"
+									},
+									"pm2_5": {
+										"type": "number"
+									},
+									"pm10": {
+										"type": "number"
+									},
+									"nh3": {
+										"type": "number"
+									}
+								}
+							},
+							"dt": {
+								"type": "integer"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
