@@ -606,9 +606,7 @@
 										{
 											"referenceName": "RestResource1",
 											"type": "DatasetReference",
-											"parameters": {
-												"q": "AAPL"
-											}
+											"parameters": {}
 										}
 									],
 									"outputs": [
