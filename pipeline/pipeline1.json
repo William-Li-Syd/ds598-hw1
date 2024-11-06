@@ -8,6 +8,10 @@
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "[\n  {\"q\": \"AAPL\"},\n  {\"q\": \"GOOGL\"},\n  {\"q\": \"MSFT\"}\n]\n ",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "Copy data1",
